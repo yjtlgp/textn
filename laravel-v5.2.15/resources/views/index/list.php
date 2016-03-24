@@ -8,3 +8,4 @@
 </tr>
 <?php }?>
 </table>
+<?php echo $arr->render() ?>
