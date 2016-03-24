@@ -1,0 +1,23 @@
+<?php
+	namespace App\Http\Controllers;
+	use App\Index;
+	use App\Http\Controllers\Controller;
+	use DB;
+	class TextController extends Controller{
+		public function index(){
+			return view("index.index");
+		}
+		public function add(){
+			header("content-type:text/html;charset=utf8");
+			$desc=$_POST['liuyan'];
+			$sql="insert into liuyan (l_desc) values('$desc')";
+			//echo $sql;die;
+			$re=DB::insert($sql);
+			if($re){
+				echo "<script>alert('��ӳɹ�');location.href='/'</script>";
+			}else{
+				echo "<script>alert('���ʧ��');location.href='/'</script>";
+			}
+		}
+	}
+?>
