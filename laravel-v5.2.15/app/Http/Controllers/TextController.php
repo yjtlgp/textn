@@ -20,9 +20,8 @@
 			}
 		}
 		public function lists(){
-			$sql="select * from liuyan";
-			$arr=DB::select($sql);
-			//print_r($arr);die;
+			$arr = DB::table('users')->paginate(5);
+			
 			return view("index.list",['arr'=>$arr]);
 		}
 		public function update(){
